@@ -54,18 +54,17 @@
                 case "Grande":
                     fatorMultiplicativoPorte = 2;    // Dobro da quantidade padrão
                     break;
-              
             }
     
             // Vetor de armas e fatores multiplicativos correspondentes
             var armas = [
-                { nome: "FlechaSedativa", fator: 1 },
-                { nome: "DardoTranquilizante", fator: 0.33 },  // 3x menos
-                { nome: "Estilingue", fator: 10 },            // 10x mais
-                { nome: "Boomerang", fator: 6 },              // 6x mais
-                { nome: "Bastao", fator: 20 }                 // 20x mais
+                { nome: "FlechaSedativa", fator: 1, dano: 95, tempoParaTopor: 4 },
+                { nome: "DardoTranquilizante", fator: 0.33, dano: 200, tempoParaTopor: 2 },  // 3x menos
+                { nome: "Estilingue", fator: 10, dano: 14, tempoParaTopor: 6 },
+                { nome: "Boomerang", fator: 6, dano: 30, tempoParaTopor: 8 },
+                { nome: "Bastao", fator: 20, dano: 5, tempoParaTopor: 15 }
             ];
-    
+
             // Encontrar o fator multiplicativo correspondente à arma selecionada
             var armaSelecionada = armas.find(function(arma) {
                 return arma.nome === tipoArma;
@@ -73,18 +72,42 @@
             
             var fatorMultiplicativoArma = armaSelecionada ? armaSelecionada.fator : 1;  // Padrão para casos não previstos
     
-            // Calcular a quantidade de munição necessária
+            // Calcular a quantidade de munição necessária, o dano causado e o tempo necessário para atingir o "topor"
             var quantidadeMunicao = Math.max(Math.floor(nivelCriatura / 15) * 2 * fatorMultiplicativoPorte * fatorMultiplicativoArma, 1);
-    
+            var danoCausado = quantidadeMunicao * armaSelecionada.dano;
+
+            // Calcular a taxa de tiro
+            var taxaDeTiro = calcularTaxaDeTiro(nivelCriatura, fatorMultiplicativoPorte, fatorMultiplicativoArma);
+
+            // Ajustar o tempo de tiro com base na taxa de tiro por segundo
+            var tempoDeTiro = 1 / taxaDeTiro;
+
             // Atualizar a div_mensagem com os resultados
             var div_mensagem = document.getElementById("div_mensagem");
             div_mensagem.innerHTML = "Porte da criatura selecionado: " + porteSelecionado +
                 "<br>Tipo de arma selecionado: " + tipoArma +
-                "<br>Quantidade de munição necessária: " + Math.ceil(quantidadeMunicao);
-    
+                "<br>Quantidade de munição necessária: " + Math.ceil(quantidadeMunicao) +
+                "<br>Dano causado: " + danoCausado +
+                "<br>Tempo de estimado de tiros por segundo: " + tempoDeTiro.toFixed(2) + " segundos";
+
             console.log("Porte calculado com base no nível: " + porteSelecionado);
             console.log("Tipo de arma selecionado: " + tipoArma);
             console.log("Quantidade de munição necessária: " + quantidadeMunicao);
+            console.log("Dano causado: " + danoCausado);
+            console.log("Tempo de estimado de tiros por segundo: " + tempoDeTiro.toFixed(2) + " segundos");
+        }
+
+        function calcularTempoParaTopor(tempoBase, quantidadeMunicao) {
+            // Lógica para calcular o tempo necessário para atingir o "topor"
+            return tempoBase * quantidadeMunicao;
+        }
+
+        function calcularTaxaDeTiro(nivel, fatorPorte, fatorArma) {
+            // Lógica para calcular a taxa de tiros por segundo com base nos fatores
+            var taxaBase = 1;  // Taxa padrão
+            var taxaNivel = Math.max(1, nivel / 10);  // Aumenta com o nível, mínimo de 1
+            var taxaFinal = taxaBase * taxaNivel * fatorPorte * fatorArma;
+            return taxaFinal;
         }
     </script>
     
