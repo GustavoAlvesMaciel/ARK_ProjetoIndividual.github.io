@@ -36,80 +36,79 @@
             var nivelCriatura = parseInt(document.getElementById("lvlcriatura").value);
             var tipoArma = document.getElementById("arma").value;
     
-            // Validar o nível da criatura
+            // Verificar se o nível da criatura é válido
             if (isNaN(nivelCriatura) || nivelCriatura < 1) {
-                alert("Digite um nível de criatura válido.");
+                document.getElementById("div_mensagem").innerHTML = "Digite um nível de criatura válido.";
                 return;
             }
     
-            // Lógica para determinar a quantidade de munição necessária com base no porte
-            var fatorMultiplicativoPorte;
-            switch (porteSelecionado) {
-                case "Pequeno":
-                    fatorMultiplicativoPorte = 0.5;  // Metade da quantidade padrão
-                    break;
-                case "Médio":
-                    fatorMultiplicativoPorte = 1;    // Quantidade padrão
-                    break;
-                case "Grande":
-                    fatorMultiplicativoPorte = 2;    // Dobro da quantidade padrão
-                    break;
-            }
+            // Determinar o fator multiplicativo do porte com base na escolha do usuário
+            var fatorMultiplicativoPorte = (porteSelecionado === "Médio") ? 1 : (porteSelecionado === "Pequeno") ? 0.5 : 2;
     
-            // Vetor de armas e fatores multiplicativos correspondentes
-            var armas = [
-                { nome: "FlechaSedativa", fator: 1, dano: 95, tempoParaTopor: 4 },
-                { nome: "DardoTranquilizante", fator: 0.33, dano: 200, tempoParaTopor: 2 },  // 3x menos
-                { nome: "Estilingue", fator: 10, dano: 14, tempoParaTopor: 6 },
-                { nome: "Boomerang", fator: 6, dano: 30, tempoParaTopor: 8 },
-                { nome: "Bastao", fator: 20, dano: 5, tempoParaTopor: 15 }
-            ];
-
-            // Encontrar o fator multiplicativo correspondente à arma selecionada
+            // Encontrar a arma selecionada no array de armas
             var armaSelecionada = armas.find(function(arma) {
                 return arma.nome === tipoArma;
             });
             
-            var fatorMultiplicativoArma = armaSelecionada ? armaSelecionada.fator : 1;  // Padrão para casos não previstos
+            // Verificar se a arma é válida
+            if (!armaSelecionada) {
+                document.getElementById("div_mensagem").innerHTML = "Selecione uma arma válida.";
+                return;
+            }
+            
+            // Obter o fator multiplicativo da arma
+            var fatorMultiplicativoArma = armaSelecionada.fator;
     
-            // Calcular a quantidade de munição necessária, o dano causado e o tempo necessário para atingir o "topor"
+            // Calcular a quantidade de munição necessária
             var quantidadeMunicao = Math.max(Math.floor(nivelCriatura / 15) * 2 * fatorMultiplicativoPorte * fatorMultiplicativoArma, 1);
+    
+            // Calcular o dano total causado
             var danoCausado = quantidadeMunicao * armaSelecionada.dano;
-
-            // Calcular a taxa de tiro
-            var taxaDeTiro = calcularTaxaDeTiro(nivelCriatura, fatorMultiplicativoPorte, fatorMultiplicativoArma);
-
-            // Ajustar o tempo de tiro com base na taxa de tiro por segundo
-            var tempoDeTiro = 1 / taxaDeTiro;
-
+    
             // Atualizar a div_mensagem com os resultados
             var div_mensagem = document.getElementById("div_mensagem");
             div_mensagem.innerHTML = "Porte da criatura selecionado: " + porteSelecionado +
                 "<br>Tipo de arma selecionado: " + tipoArma +
                 "<br>Quantidade de munição necessária: " + Math.ceil(quantidadeMunicao) +
-                "<br>Dano causado: " + danoCausado +
-                "<br>Tempo de estimado de tiros por segundo: " + tempoDeTiro.toFixed(2) + " segundos";
-
-            console.log("Porte calculado com base no nível: " + porteSelecionado);
-            console.log("Tipo de arma selecionado: " + tipoArma);
-            console.log("Quantidade de munição necessária: " + quantidadeMunicao);
-            console.log("Dano causado: " + danoCausado);
-            console.log("Tempo de estimado de tiros por segundo: " + tempoDeTiro.toFixed(2) + " segundos");
+                "<br>Dano esperado: " + danoCausado;
         }
+    
+        var armas = [
+            { nome: "FlechaSedativa", fator: 1, dano: 95 },
+            { nome: "DardoTranquilizante", fator: 0.33, dano: 200 },
+            { nome: "Estilingue", fator: 10, dano: 14 },
+            { nome: "Boomerang", fator: 6, dano: 30 },
+            { nome: "Bastao", fator: 20, dano: 5 }
+        ];
+        /*Obter valores dos elementos HTML:
 
-        function calcularTempoParaTopor(tempoBase, quantidadeMunicao) {
-            // Lógica para calcular o tempo necessário para atingir o "topor"
-            return tempoBase * quantidadeMunicao;
-        }
+porteSelecionado, nivelCriatura, e tipoArma recebem os valores selecionados pelo usuário nos elementos do formulário.
+Verificar se o nível da criatura é válido:
 
-        function calcularTaxaDeTiro(nivel, fatorPorte, fatorArma) {
-            // Lógica para calcular a taxa de tiros por segundo com base nos fatores
-            var taxaBase = 1;  // Taxa padrão
-            var taxaNivel = Math.max(1, nivel / 10);  // Aumenta com o nível, mínimo de 1
-            var taxaFinal = taxaBase * taxaNivel * fatorPorte * fatorArma;
-            return taxaFinal;
-        }
+Utiliza um condicional para garantir que o nível seja um número válido e maior que 0.
+Determinar o fator multiplicativo do porte:
+
+Utiliza um condicional ternário para atribuir o fator com base na escolha do usuário.
+Encontrar a arma selecionada no array de armas:
+
+Utiliza o método find para localizar a arma escolhida no array de armas.
+Verificar se a arma é válida:
+
+Garante que a arma selecionada seja válida.
+Obter o fator multiplicativo da arma:
+
+fatorMultiplicativoArma recebe o valor do fator associado à arma selecionada.
+Calcular a quantidade de munição necessária:
+
+quantidadeMunicao é calculada com base no nível da criatura, porte, e arma selecionados. Garante que o resultado seja no mínimo 1.
+Calcular o dano total causado:
+
+danoCausado é calculado multiplicando a quantidade de munição pelo dano da arma selecionada.
+Atualizar a div_mensagem com os resultados:
+
+Exibe os resultados na página HTML, incluindo porte, arma, quantidade de munição necessária, e dano total causado.*/
     </script>
     
 </body>
+    
 </html>
