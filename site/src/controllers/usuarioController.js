@@ -63,13 +63,14 @@ function cadastrar(req, res) {
     usuarioModel.cadastrar(nome, email, senha, genero, jogo)
       .then(
         function (resultado) {
+          console.log("Cadastro realizado com sucesso:", resultado);
           res.json(resultado);
         }
       )
       .catch(
         function (erro) {
           console.log(erro);
-          console.log("\nHouve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage);
+          console.error("Erro durante o cadastro:", erro);
           res.status(500).json(erro.sqlMessage);
         }
       );
