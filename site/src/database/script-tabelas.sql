@@ -1,19 +1,6 @@
--- Arquivo de apoio, para criar tabelas necessárias para a API funcionar.
--- Execute esses comandos no banco de dados para criar as tabelas.
-
--- Comandos para MySQL - banco local - ambiente de desenvolvimento
-
-CREATE DATABASE IF NOT EXISTS ark;
+CREATE DATABASE ark;
 
 USE ark;
-
-CREATE TABLE especies (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    especie VARCHAR(255) NOT NULL,
-    tipoFarm VARCHAR(255) NOT NULL,
-    dieta VARCHAR(255) NOT NULL,
-    imagem VARCHAR(255)
-);
 
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,18 +8,41 @@ CREATE TABLE usuario (
     genero VARCHAR(50) NOT NULL,
     modoJogo VARCHAR(50) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    senha VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL
 );
 
--- Comandos para criar usuário em banco de dados Azure, SQL Server,
--- com permissão de insert + update + delete + select
+CREATE TABLE especies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    especie VARCHAR(255) NOT NULL,
+    tipoFarm VARCHAR(255) NOT NULL,
+    dieta VARCHAR(255) NOT NULL,
+    imagem VARCHAR(255),
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
 
-CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
-WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
-DEFAULT_SCHEMA = dbo;
+CREATE TABLE quiz (
+    pontuacao VARCHAR(255) NOT NULL,
+    tentativa VARCHAR(50) NOT NULL,
+    erros VARCHAR(50) NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
 
-EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
 
-EXEC sys.sp_addrolemember @rolename = N'db_datareader',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
+INSERT INTO usuario (nome, email, modoJogo, senha) VALUES
+('João', 'Masculino', 'PVP', 'joao@email.com', 'senha123'),
+('Maria', 'Feminino', 'PVE', 'maria@email.com', 'senha456'),
+('Carlos', 'Masculino', 'PVE', 'carlos@email.com', 'senha789');
+
+INSERT INTO especies (especie, tipoFarm, dieta, imagem) VALUES
+('argentavis', 'Carne e Derivados', 'Carnívora', 'argentavis.jpg'),
+('bronto', 'Folhas e Derivados', 'Herbívora', 'bronto.jpg'),
+('parassauro', 'Bambu e Derivados', 'Herbívora', 'parassauro.jpg'),
+('rex', 'Carne e Derivados', 'Carnívora', 'rex.jpg');
+
+select * from usuario;
+select * from especies;
+
+
+DROP DATABASE ark;
