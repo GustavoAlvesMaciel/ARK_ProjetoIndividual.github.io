@@ -2,14 +2,6 @@ CREATE DATABASE ark;
 
 USE ark;
 
-CREATE TABLE especies (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    especie VARCHAR(255) NOT NULL,
-    tipoFarm VARCHAR(255) NOT NULL,
-    dieta VARCHAR(255) NOT NULL,
-    imagem VARCHAR(255)
-);
-
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
@@ -18,6 +10,25 @@ CREATE TABLE usuario (
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE especies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    especie VARCHAR(255) NOT NULL,
+    tipoFarm VARCHAR(255) NOT NULL,
+    dieta VARCHAR(255) NOT NULL,
+    imagem VARCHAR(255),
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+CREATE TABLE quiz (
+    pontuacao VARCHAR(255) NOT NULL,
+    tentativa VARCHAR(50) NOT NULL,
+    erros VARCHAR(50) NOT NULL,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
 
 INSERT INTO usuario (nome, email, modoJogo, senha) VALUES
 ('João', 'Masculino', 'PVP', 'joao@email.com', 'senha123'),
@@ -31,5 +42,7 @@ INSERT INTO especies (especie, tipoFarm, dieta, imagem) VALUES
 ('rex', 'Carne e Derivados', 'Carnívora', 'rex.jpg');
 
 select * from usuario;
+select * from especies;
+
 
 DROP DATABASE ark;
