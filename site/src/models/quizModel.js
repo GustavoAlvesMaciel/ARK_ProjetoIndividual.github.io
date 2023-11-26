@@ -1,9 +1,9 @@
 var database = require("../database/config");
 
-function cadastrar(pontuacao, tentativa, erros) {
-  console.log("ACESSEI O QUIZ MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", pontuacao, tentativa, erros);
+function cadastrar(pontuacao, tentativa, erros, idUser) {
+  console.log("ACESSEI O QUIZ MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", pontuacao, tentativa, erros, idUser);
   var instrucao = `
-    INSERT INTO quiz (pontuacao, tentativa, erros) VALUES ('${pontuacao}', '${tentativa}', '${erros}');
+    INSERT INTO quiz (pontuacao, tentativa, erros, usuario_id) VALUES ('${pontuacao}', '${tentativa}', '${erros}', '${idUser}');
   `;
 
   console.log("Executando a instrução SQL: \n" + instrucao);

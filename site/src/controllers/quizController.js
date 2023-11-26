@@ -5,8 +5,9 @@ function cadastrar(req, res) {
   var pontuacao = req.body.pontuacaoServer;
   var tentativa = req.body.tentativaServer;
   var erros = req.body.errosServer;
+  var idUser = req.body.idUser;
 
-  console.log("Dados recebidos do frontend:", pontuacao, tentativa, erros);
+  console.log("Dados recebidos do frontend:", pontuacao, tentativa, erros, idUser);
 
   if (pontuacao == undefined) {
     res.status(400).send("Sua pontuação está undefined!");
@@ -15,7 +16,7 @@ function cadastrar(req, res) {
   } else if (erros == undefined) {
     res.status(400).send("Seus erros estão undefined!");
   } else {
-    quizModel.cadastrar(pontuacao, tentativa, erros)
+    quizModel.cadastrar(pontuacao, tentativa, erros, idUser)
       .then(
         function (resultado) {
           console.log("Cadastro realizado com sucesso:", resultado);

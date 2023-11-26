@@ -21,6 +21,24 @@ CREATE TABLE especies (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
+CREATE TABLE mutacao (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    especie VARCHAR(255) NOT NULL,
+    genero VARCHAR(255) NOT NULL,
+    ancestrais VARCHAR(255) NOT NULL,
+    lvl INT NOT NULL,
+    hp INT NOT NULL,
+    st INT NOT NULL,
+    ox INT NOT NULL,
+    fo INT NOT NULL,
+    we INT NOT NULL,
+    dm INT NOT NULL,
+    mo INT NOT NULL,
+     usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+
 CREATE TABLE quiz (
     pontuacao VARCHAR(255) NOT NULL,
     tentativa VARCHAR(50) NOT NULL,
@@ -43,6 +61,7 @@ INSERT INTO especies (especie, tipoFarm, dieta, imagem) VALUES
 
 select * from usuario;
 select * from especies;
+select * from mutacao;
 
 
 DROP DATABASE ark;

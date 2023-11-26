@@ -1,0 +1,320 @@
+@import url(global.css);
+
+body {
+    background-color: var(--secondary-100);
+
+}
+
+
+.inicial {
+    background: linear-gradient(to bottom, var(--white), var(--secondary-100));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.container-banner {
+    width: 100%;
+    height: calc(100vh - (10vh + 20px));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-text-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: min(500px, 90%);
+    gap: 20px;
+}
+
+.content-text-banner .title-banner {
+    color: var(--secondary-800);
+    font-size: 50px;
+}
+
+.content-text-banner .title-banner span {
+    color: var(--blue-400);
+    font-size: 50px;
+}
+
+.content-text-banner p {
+    color: var(--secondary-500);
+    font-size: 20px;
+}
+
+.content-img {
+    width: 420px;
+}
+
+.content-img img {
+    width: 100%;
+}
+
+/* CARDS METRICAS */
+
+.container-metricas {
+    border-radius: 16px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.479);
+    height: 20vh;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1; /* Adiciona um z-index para garantir que a .container-metricas esteja na frente da imagem de fundo */
+}
+
+
+.card-metrica {
+    width: min(400px, 100%);
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    align-items: center;
+}
+
+.card-metrica p {
+    width: 60%;
+}
+
+/* ANUNCIO Card Game  */
+
+.cardgame {
+    margin: 50px 0px 50px 0px;
+}
+
+
+
+.container-cardgame {
+    background: url(assets/imgs/arkBan.png);
+    background-position: center;
+    width: 100%;
+    padding: 50px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-cardgame .left-side h2,
+h3 {
+    color: var(--secondary-100);
+}
+
+.container-cardgame .right-side span {
+    color: var(--secondary-800);
+    background-color: var(--blue-100);
+    border-radius: 20px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+
+.banner {
+    background-image: url('./assets/ark.gif');
+        background-size: cover; /* Ajuste conforme necessário: cover, contain, etc. */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .container {
+    width: 80%;
+    max-width: 1200px; /* Defina o valor máximo desejado */
+    margin: auto;
+    display: flex;
+}
+.container-banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.92; /* Ajuste o valor conforme necessário (0.0 a 1.0) */
+    height: 82vh; /* Garante que o contêiner ocupe a altura da tela */
+    width: 100%; /* Garante que o contêiner ocupe a largura total disponível */
+    display: flex;
+   
+}
+.container-banner::before {
+    content: ''; /* Pseudo-elemento para adicionar borda à esquerda */
+    position: absolute;
+    top: 0;
+    right: 50%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%); /* Gradiente para criar borda desbotada */
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo do contêiner */
+    width: 100vw; /* Largura total da tela */
+    border-radius: 20px;
+}
+
+
+
+/* Colections */
+
+.colecoes {
+    background-color: var(--secondary-100);
+    width: 100%;
+}
+
+.container-colecoes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-colecoes .header-colecoes {
+    background-color: var(--secondary-100);
+    margin-bottom: 2rem;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-colecoes .container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+}
+
+.container-cards .card {
+    border-radius: 16px;
+    width: min(350px, 100%);
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.container-cards .card .content-text {
+    align-self: flex-end;
+    background: rgba(255, 255, 255, 0.822);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    padding: 2rem;
+    color: var(--secondary-800);
+
+}
+
+.container-cards .card .content-text h3 {
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--secondary-800);
+}
+
+
+.container-cards .card.quiz {
+    background-color: var(--white);
+    background-image: url(assets/spino.gif);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.container-cards .card.topor {
+    background-color: var(--white);
+    background-image: url(assets/rex.gif);
+    background-position: center;
+    background-size: 100%;
+    
+    background-repeat: no-repeat;
+
+}
+
+.container-cards .card.pesquisa {
+    background-color: var(--white);
+    background-image: url(assets/imgs/arkpe.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.container-cards .card.genetica {
+    background-color: var(--white);
+    background-image: url(assets/imgs/Wyvern.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.container-cards .card.dicas {
+    background-color: var(--white);
+    background-image: url(assets/imgs/wyvern_2.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.container-cards .card.perfil {
+    background-color: var(--white);
+    background-image: url(assets/imgs/perfil.jpg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-text-banner, .content-img {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.card-metrica {
+    animation: scaleIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container-cards .card {
+    animation: slideIn 1s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container-cards .card:hover {
+    transform: scale(1.1);
+}
+
+
+

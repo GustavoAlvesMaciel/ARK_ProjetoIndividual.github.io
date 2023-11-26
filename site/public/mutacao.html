@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Mutação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Cadastro de Mutação</h1>
+
+<form id="mutationForm">
+    <label for="especie">Espécie:</label>
+    <input type="text" id="especie" name="especie" required>
+
+    <label for="genero">Gênero:</label>
+    <select id="genero" name="genero" required>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+    </select>
+
+    <label for="ancestrais">Ancestrais:</label>
+    <input type="text" id="ancestrais" name="ancestrais" required>
+
+    <label for="lvl">Nível:</label>
+    <input type="number" id="lvl" name="lvl" required>
+
+    <label for="hp">HP:</label>
+    <input type="number" id="hp" name="hp" required>
+
+    <label for="st">ST:</label>
+    <input type="number" id="st" name="st" required>
+
+    <label for="ox">OX:</label>
+    <input type="number" id="ox" name="ox" required>
+
+    <label for="fo">FO:</label>
+    <input type="number" id="fo" name="fo" required>
+
+    <label for="we">WE:</label>
+    <input type="number" id="we" name="we" required>
+
+    <label for="dm">DM:</label>
+    <input type="number" id="dm" name="dm" required>
+
+    <label for="mo">MO:</label>
+    <input type="number" id="mo" name="mo" required>
+
+    <button type="button" onclick="submitForm()">Cadastrar Mutação</button>
+</form>
+
+
+<script>
+    function submitForm() {
+        // Coletar dados do formulário
+        var especie = document.getElementById('especie').value;
+        var genero = document.getElementById('genero').value;
+        var ancestrais = document.getElementById('ancestrais').value;
+        var lvl = document.getElementById('lvl').value;
+        var hp = document.getElementById('hp').value;
+        var st = document.getElementById('st').value;
+        var ox = document.getElementById('ox').value;
+        var fo = document.getElementById('fo').value;
+        var we = document.getElementById('we').value;
+        var dm = document.getElementById('dm').value;
+        var mo = document.getElementById('mo').value;
+        
+        fetch("/mutacao/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                especieServer: especie,
+                generoServer: genero,
+                ancestraisServer: ancestrais,
+                lvlServer: lvl,
+                hpServer: hp,
+                stServer: st,
+                oxServer: ox,
+                foServer: fo,
+                weServer: we,
+                dmServer: dm,
+                moServer: mo,
+            }),
+        })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // Aqui está a chamada da função finalizarAguardar
+                finalizarAguardar();
+                
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, '2000');
+
+                limparFormulario();
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            
+            // Aqui está a chamada da função finalizarAguardar
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    // Defina a função finalizarAguardar aqui
+    function finalizarAguardar() {
+        // Implemente a lógica desejada para finalizar o aguardar
+        console.log('Finalizando aguardar...');
+    }
+</script>
+
+</body>
+</html>

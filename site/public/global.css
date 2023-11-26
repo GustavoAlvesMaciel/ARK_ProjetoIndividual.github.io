@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+
+:root {
+    --white: #DEE8F6; /*palavras*/
+    --blue-100: #bbd7e4; /*hover botoes*/
+    --blue-200: #a3c6d4; /*brilho*/
+    --blue-400: #1c565f; /*ARK*/
+    --blue-500: #1c565f; /*botoes*/
+    --blue-700: #183e44; /*footer*/
+    --red-100: #DEE8F6;/*palavras*/
+    --secondary-100: #DEE8F6;/*palavras*/
+    --secondary-500: #2E3A59;
+    --secondary-800: #0E1533; /*letras*/
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: var(--secondary-100);
+    font-family: 'Poppins';
+
+    overflow-x: hidden; /* Adiciona esta linha para ocultar a barra de rolagem horizontal */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--secondary-800);
+}
+
+/* a */
+a {
+    padding: 15px;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    color: var(--secondary-800);
+    font-weight: bold;
+}
+
+.nav ul li a:hover {
+    color: var(--secondary-800);
+    background-color: var(--blue-100);
+}
+
+/* BTN´S  */
+.btn {
+    font-family: 'Poppins';
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    padding: 15px;
+    text-transform: none;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+
+
+.btn-white {
+    color: #1d1d1d;
+    background-color: #f3f3f3;
+}
+
+.btn-blue {
+    color: var(--white);
+    background-color: var(--blue-500);
+}
+
+.btn-blue:hover {
+    box-shadow: 0 5px 15px var(--blue-200);
+}
+
+
+
+
+.wrapper {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+
+
+.header-main {
+    z-index: 2;
+    width: 100%;
+    padding: 10px 0px;
+    min-height: 10vh;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px); /* Adicione esta linha para o efeito de desfoque */
+}
+
+/* Adicionamos uma classe para a barra de navegação quando está rolada para baixo */
+.header-scrolled {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+
+.container-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto; /* Centraliza o container */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.logo a {
+    padding: 0px;
+}
+
+.container-header .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.container-header .nav ul {
+    display: flex;
+    align-items: center;
+    color: #646464;
+    gap: 20px;
+}
+
+.container-header .nav .btn-menu {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.7s ease;
+}
+
+.container-header .nav .btn-menu:hover {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+
+
+}
+
+.container-header .nav .btn-menu img {
+    width: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    margin: 50px 0px 0px 0px;
+    background-color: var(--blue-700);
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 20vh;
+}
+
+.container-footer .left-side {
+    width: min(500px, 100%);
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+.container-footer .left-side h2 {
+    color: var(--white);
+
+}
+
+.container-footer .left-side p {
+    color: var(--white);
+
+}
+
+.container-footer .right-side {
+    width: min(500px, 100%);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.container-footer .right-side h2 {
+    color: var(--white);
+}
+
+.container-footer .right-side .nav ul {
+    gap: 20px;
+    display: flex;
+}
+@media(max-width:610px){
+    .container-header .nav ul {
+        display: none;
+    }
+    .content-img{
+        display: none;
+    }
+    .nav.footer{
+        display: none;
+    }
+}

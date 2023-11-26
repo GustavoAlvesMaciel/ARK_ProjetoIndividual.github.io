@@ -11,6 +11,7 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var especieRouter = require("./src/routes/especie"); // Corrigido aqui
+var mutacaoRouter = require("./src/routes/mutacao"); // Corrigido aqui
 var quizRouter = require("./src/routes/quiz"); // Corrigido aqui
 
 
@@ -23,6 +24,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/especie", especieRouter); // Corrigido aqui
+app.use("/mutacao", mutacaoRouter); // Corrigido aqui
 app.use("/quiz", quizRouter); // Corrigido aqui
 
 app.listen(PORTA, function () {
