@@ -1,4 +1,4 @@
-<img src="[https://user-images.githubusercontent.com/46379117/192358781-9ca879e4-e55e-4d0d-b876-f9a4a2ed9ae8.png](https://images.squarespace-cdn.com/content/v1/5cccefd8d7819e71077539c8/1591731681315-CTT53UTPLS81VZOAY0PY/ARK_LockDown.gif)" width="600px">
+<img src="https://images.squarespace-cdn.com/content/v1/5cccefd8d7819e71077539c8/1591731681315-CTT53UTPLS81VZOAY0PY/ARK_LockDown.gif" width="600px">
 
 # ARK Project - README
 
