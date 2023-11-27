@@ -21,6 +21,7 @@ As principais tecnologias utilizadas na criação deste projeto incluem:
 - **JavaScript:** Implementação de interatividade e dinamismo.
 - **Node:** Ambiente de execução para JavaScript do lado do servidor.
 - **MySQL:** Banco de dados para armazenamento de informações relevantes.
+- TRELLO https://trello.com/b/fjGvHJZT/ark
 
 ## Autor
 Este guia foi feito por **Gustavo Alves Maciel** como parte do projeto acadêmico na SP Tech School.
