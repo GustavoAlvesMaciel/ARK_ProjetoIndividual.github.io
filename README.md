@@ -31,7 +31,3 @@ Autora
 Este guia foi feito com ❤️ por Giovana Siqueira como parte do projeto acadêmico na SP Tech School.
 
 Esperamos que este guia enriqueça sua experiência em ARK: Survival Evolved. Boa sorte, sobrevivente! 🦖🌋
-### Fontes bibliográficas
-
-[1] https://datatracker.ietf.org/doc/html/rfc2396  
-[2] https://datatracker.ietf.org/doc/html/rfc7231
