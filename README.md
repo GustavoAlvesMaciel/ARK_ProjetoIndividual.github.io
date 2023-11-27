@@ -22,6 +22,7 @@ As principais tecnologias utilizadas na criação deste projeto incluem:
 - **Node:** Ambiente de execução para JavaScript do lado do servidor.
 - **MySQL:** Banco de dados para armazenamento de informações relevantes.
 - TRELLO https://trello.com/b/fjGvHJZT/ark
+- SLIDES https://view.genial.ly/6563e1c2efcef60010c9f0a1/presentation-copia-pups-presentation
 
 ## Autor
 Este guia foi feito por **Gustavo Alves Maciel** como parte do projeto acadêmico na SP Tech School.
