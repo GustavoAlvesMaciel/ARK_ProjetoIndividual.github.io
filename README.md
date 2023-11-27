@@ -25,5 +25,4 @@ As principais tecnologias utilizadas na criação deste projeto incluem:
 ## Autor
 Este guia foi feito por **Gustavo Alves Maciel** como parte do projeto acadêmico na SP Tech School.
 
-Esperamo que este guia enriqueça sua experiência em ARK: Survival Evolved. Boa sorte, sobrevivente! 🦖🌋 ("By Helena ARK")
-
+Esperamos que este guia enriqueça sua experiência em ARK: Survival Evolved. Boa sorte, sobrevivente! 🦖🌋 ("By Helena ARK")
