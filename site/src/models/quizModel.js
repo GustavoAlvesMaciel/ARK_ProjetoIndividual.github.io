@@ -18,8 +18,25 @@ function cadastrar(pontuacao, tentativa, erros, idUser) {
     });
 }
 
+function listar(){
+  var instrucao = `
+    SELECT * FROM quiz;
+  `;
 
+
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao)
+   .then(result => {
+    console.log("Operação bem-sucedida:", result);
+      return result; // Pode retornar alguma informação relevante para sua aplicação
+    })
+    .catch(error => {
+      console.error("Erro na operação:", error);
+      throw error; // Propagar o erro para quem chamou esta função
+    });
+}
 
 module.exports = {
-  cadastrar
+  cadastrar,
+  listar
 };

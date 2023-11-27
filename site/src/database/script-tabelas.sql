@@ -11,12 +11,12 @@ CREATE TABLE usuario (
     senha VARCHAR(255) NOT NULL
 );
 
+
 CREATE TABLE especies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     especie VARCHAR(255) NOT NULL,
     tipoFarm VARCHAR(255) NOT NULL,
     dieta VARCHAR(255) NOT NULL,
-    imagem VARCHAR(255),
     usuario_id INT,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
@@ -38,7 +38,6 @@ CREATE TABLE mutacao (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
-
 CREATE TABLE quiz (
     pontuacao VARCHAR(255) NOT NULL,
     tentativa VARCHAR(50) NOT NULL,
@@ -46,7 +45,6 @@ CREATE TABLE quiz (
     usuario_id INT,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
-
 
 INSERT INTO usuario (nome, email, modoJogo, senha) VALUES
 ('João', 'Masculino', 'PVP', 'joao@email.com', 'senha123'),
@@ -62,6 +60,5 @@ INSERT INTO especies (especie, tipoFarm, dieta, imagem) VALUES
 select * from usuario;
 select * from especies;
 select * from mutacao;
-
 
 DROP DATABASE ark;

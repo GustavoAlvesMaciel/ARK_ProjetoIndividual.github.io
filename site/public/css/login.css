@@ -114,31 +114,37 @@
 .right-side .logo {
     width: 50px;
 }
-
-.alerta_erro {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.card_erro {
-    z-index: 1;
-    top: 2rem;
-    right: 2rem;
-    border-radius: 16px;
+.loading-div {
     display: none;
-    background: var(--red-500);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+    justify-content: center;
     align-items: center;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: var(--secondary-100);
-    width: min(400px, 100%);
-    position: absolute;
-    border: var(--secondary-100) 1px solid;
-    padding: 10px;
-
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.card_erro #mensagem_erro {
-    font-weight: 500;
-    font-size: 20px;
+.loading-div::before {
+    content: "";
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

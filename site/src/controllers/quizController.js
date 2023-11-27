@@ -33,6 +33,29 @@ function cadastrar(req, res) {
   }
 }
 
+
+
+
+function listar (req, res){
+  quizModel.listar()  
+
+  .then(
+    function (resultado) {
+      console.log("Listagem de respostas:", resultado);
+      res.json(resultado);
+    }
+  )
+  .catch(
+    function (erro) {
+      console.log(erro);
+      console.error("Erro durante a listagem:", erro);
+      res.status(500).json(erro.sqlMessage);
+    }
+  );
+}
+
+
 module.exports = {
-  cadastrar
+  cadastrar,
+  listar
 };

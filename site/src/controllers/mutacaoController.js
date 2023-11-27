@@ -13,8 +13,9 @@ function cadastrar(req, res) {
   var we = req.body.weServer;
   var dm = req.body.dmServer;
   var mo = req.body.moServer;
+  var idUser = req.body.idUser;
 
-  console.log("Dados recebidos do frontend:", especie, genero, ancestrais, lvl, hp, st, ox, fo, we, dm, mo);
+  console.log("Dados recebidos do frontend:", especie, genero, ancestrais, lvl, hp, st, ox, fo, we, dm, mo, idUser);
 
   if (especie == undefined) {
     res.status(400).send("Sua espécie está undefined!");
@@ -39,7 +40,7 @@ function cadastrar(req, res) {
   } else if (mo == undefined) {
     res.status(400).send("Seu mo está undefined!");
   } else {
-    mutacaoModel.cadastrar(especie, genero, ancestrais, lvl, hp, st, ox, fo, we, dm, mo) // Alterado aqui
+    mutacaoModel.cadastrar(especie, genero, ancestrais, lvl, hp, st, ox, fo, we, dm, mo, idUser) // Alterado aqui
       .then(
         function (resultado) {
           console.log("Cadastro realizado com sucesso:", resultado);
@@ -56,6 +57,29 @@ function cadastrar(req, res) {
   }
 }
 
+
+
+
+
+function listar (req, res){
+  mutacaoModel.listar()  
+
+  .then(
+    function (resultado) {
+      console.log("Listagem de mutacao:", resultado);
+      res.json(resultado);
+    }
+  )
+  .catch(
+    function (erro) {
+      console.log(erro);
+      console.error("Erro durante a listagem:", erro);
+      res.status(500).json(erro.sqlMessage);
+    }
+  );
+}
+
 module.exports = {
-  cadastrar
+  cadastrar,
+  listar
 };

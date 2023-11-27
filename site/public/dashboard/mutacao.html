@@ -15,12 +15,9 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- CSS Files -->
   <script src="../js/sessao.js"></script>
-  
-   <!-- scripts do Chart.js - 2022-1 -->
-   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <link id="pagestyle" href="../css/quiz.css" rel="stylesheet" />
+  <link id="pagestyle" href="../css/muta.css" rel="stylesheet" />
   <link id="pagestyle" href="../css/dash.css" rel="stylesheet" />
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-100" onload="validarSessao(),  atualizacaoPeriodica()">
@@ -210,403 +207,245 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="row mt-4">
-      <div class="col-lg-7 mb-lg-0 mb-4">
-        <div class="card">
-          <div class="card-body p-3">
-            <div class="row">
-                  <div id="quiz-container">
-                    <h3>Vamos testar seu conhecimento?</h3>
+    <br><br>
+    <main class="container-main">
+      <div class="wrapper">
+        <div class="container-form">
+          <div class="container-center">
+            <div class="right-side">
 
-                    <div class="question" id="question1">
-                      <p>1. Qual é a criatura mais temível em ARK?</p>
-                      <label>
-                        (A) <input type="radio" name="q1" value="a"> T-Rex
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q1" value="b"> Velociraptor
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q1" value="c"> Mosassauro
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q1" value="d"> Argentavis
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Esta criatura domina os oceanos.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question2">
-                      <p>2. Qual é o recurso mais crucial para a sobrevivência?</p>
-                      <label>
-                        (A) <input type="radio" name="q2" value="a"> Pedra
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q2" value="b"> Madeira
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q2" value="c"> Metal
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q2" value="d"> Fibra
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Este recurso é usado em quase todas as receitas básicas.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question3">
-                      <p>3. Qual é o nome da ilha principal onde os jogadores começam?</p>
-                      <label>
-                        (A) <input type="radio" name="q3" value="a"> The Center
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q3" value="b"> Ragnarok
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q3" value="c"> The Island
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q3" value="d"> Aberration
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: É a ilha original onde os jogadores começam sua jornada.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question4">
-                      <p>4. Qual é a função da Torre de Órbita em ARK?</p>
-                      <label>
-                        (A) <input type="radio" name="q4" value="a"> Teletransporte
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q4" value="b"> Produção de recursos
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q4" value="c"> Aprisionar dinossauros
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q4" value="d"> Fornecer luz
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Ela é usada para teletransporte entre diferentes áreas do mapa.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question5">
-                      <p>5. Qual é o nome do item usado para domar dinossauros?</p>
-                      <label>
-                        (A) <input type="radio" name="q5" value="a"> Sela
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q5" value="b"> Mamadeira
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q5" value="c"> Narcóticos
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q5" value="d"> Bola de Tênis
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Este item é usado para acalmar os dinossauros durante o processo de domação.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question6">
-                      <p>6. Qual é o dinossauro voador mais comum em ARK?</p>
-                      <label>
-                        (A) <input type="radio" name="q6" value="a"> Pteranodon
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q6" value="b"> Quetzal
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q6" value="c"> Argentavis
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q6" value="d"> Dimorphodon
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Este dinossauro voador é conhecido por sua agilidade e versatilidade.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question7">
-                      <p>7. Qual é o bioma mais perigoso em ARK?</p>
-                      <label>
-                        (A) <input type="radio" name="q7" value="a"> Floresta
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q7" value="b"> Deserto
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q7" value="c"> Montanha
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q7" value="d"> Pântano
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Este bioma apresenta condições desafiadoras e criaturas hostis.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question8">
-                      <p>8. Qual é a função da Forja em ARK?</p>
-                      <label>
-                        (A) <input type="radio" name="q8" value="a"> Cozinhar alimentos
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q8" value="b"> Produzir metal
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q8" value="c"> Criar poções
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q8" value="d"> Produzir eletricidade
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Esta estrutura é usada para fundir metal e criar itens avançados.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question9">
-                      <p>9. Qual é o dinossauro mais usado como montaria de transporte?</p>
-                      <label>
-                        (A) <input type="radio" name="q9" value="a"> T-Rex
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q9" value="b"> Parasaur
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q9" value="c"> Brontossauro
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q9" value="d"> Raptor
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Este dinossauro é conhecido por sua velocidade e capacidade de transporte.')">Dica</button>
-                    </div>
-
-                    <div class="question" id="question10">
-                      <p>10. Qual é o propósito do "Cryopod" em ARK?</p>
-                      <label>
-                        (A) <input type="radio" name="q10" value="a"> Armazenar alimentos
-                      </label>
-                      <label>
-                        (B) <input type="radio" name="q10" value="b"> Criar poções
-                      </label>
-                      <label>
-                        (C) <input type="radio" name="q10" value="c"> Armazenar dinossauros
-                      </label>
-                      <label>
-                        (D) <input type="radio" name="q10" value="d"> Produzir eletricidade
-                      </label>
-                      <button class="btn bg-gradient-primary mt-3 w-100"
-                        onclick="showTip('Dica: Este item é usado para armazenar dinossauros de forma compacta e portátil.')">Dica</button>
-                    </div>
-
-                    <button class="btn bg-gradient-primary mt-3 w-100" onclick="submitAnswers()">Verificar
-                      Respostas</button>
-
-                    <div id="result"></div>
-                    <div>
-                    <canvas id="grafico1"></canvas>
-                  </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
+
+          <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+          </div>
+
+          <h2>Cadastre suas genéticas</h2>
+          <p>Digite os dados:</p>
+          <form id="mutationForm">
+            <label for="especie">Espécie:</label>
+            <input type="text" id="especie" name="especie" required>
+
+            <label for="genero">Gênero:</label>
+            <select id="genero" name="genero" required>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+            </select>
+
+            <label for="ancestrais">Ancestrais:</label>
+            <input type="text" id="ancestrais" name="ancestrais" required>
+
+            <label for="lvl">Nível:</label>
+            <input type="number" id="lvl" name="lvl" required>
+
+            <label for="hp">HP:</label>
+            <input type="number" id="hp" name="hp" required>
+
+            <label for="st">ST:</label>
+            <input type="number" id="st" name="st" required>
+
+            <label for="ox">OX:</label>
+            <input type="number" id="ox" name="ox" required>
+
+            <label for="fo">FO:</label>
+            <input type="number" id="fo" name="fo" required>
+
+            <label for="we">WE:</label>
+            <input type="number" id="we" name="we" required>
+
+            <label for="dm">DM:</label>
+            <input type="number" id="dm" name="dm" required>
+
+            <label for="mo">MO:</label>
+            <input type="number" id="mo" name="mo" required>
+
+            <button class="btn bg-gradient-primary mt-3 w-100" type="button" onclick="submitForm()">Cadastrar
+              Mutação</button>
+          </form>
+
+
+          <div id="div_aguardar" class="loading-div">
+            <img id="loading-gif" />
+          </div>
+
+          <div id="div_erros_login"></div>
+
         </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+    </main>
+    <div class="wrapper">
+      <div class="container-form">
+        <div class="container-center">
+          <h2>Suas genéticas</h2>
+          <label for="search">Buscar Criatura:</label>
+          <input type="text" id="search" oninput="filtrarGenetica()">
+          <ul id="listaMutacao">
+            <!-- Criaturas serão adicionadas dinamicamente aqui -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
 
 </body>
-
-
 <script>
-  // Defina as respostas corretas para cada pergunta
-  const correctAnswers = {
-    q1: 'c',
-    q2: 'c',
-    q3: 'c',
-    q4: 'a',
-    q5: 'c',
-    q6: 'a',
-    q7: 'b',
-    q8: 'b',
-    q9: 'b',
-    q10: 'c',
-    // Adicione mais perguntas e respostas conforme necessário
-  };
+  var geneticas = [
+    // Adicione mais criaturas conforme necessário
+  ];
 
-  // Inicialize a pontuação, tentativas e erros
-  let score = 0;
-  let tentativa = 0;
+  function iniciarDados() {
 
-  // Função para calcular a pontuação
-  function calculateScore() {
-    let pontuacao = 0;
-    let erros = 0;
 
-    // Percorra cada pergunta e verifique se a resposta está correta
-    for (const question in correctAnswers) {
-      const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
-
-      if (userAnswer) {
-        if (userAnswer.value === correctAnswers[question]) {
-          pontuacao++;
-        } else {
-          erros++; // Incrementa os erros específicos desta tentativa
-        }
+    fetch("/mutacao", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
       }
-    }
 
-    return { pontuacao, erros };
+    }).then(function (resposta) {
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          geneticas = json
+          exibirMutacao(geneticas);
+
+        }
+        )
+      }
+    })
   }
 
 
-  // Função chamada ao clicar no botão "Verificar Respostas"
-  function submitAnswers() {
-    const { pontuacao, erros } = calculateScore();
-    tentativa++;
+  function exibirMutacao(criaturasParaExibir) {
+    var listaMutacao = document.getElementById("listaMutacao");
+    listaMutacao.innerHTML = "";
 
-    score += pontuacao;
+    criaturasParaExibir.forEach(function (genetica) {
+      var listItem = document.createElement("li");
+      listItem.classList.add("genetica");
 
-    const resultContainer = document.getElementById('result');
-    resultContainer.innerHTML = '';
+      var infoCriatura = document.createElement("div");
+      infoCriatura.innerHTML = "<strong>" + genetica.especie + "</strong><br>" +
+        "Gênero: " + genetica.genero + "<br>" +
+        "Ancestrais: " + genetica.ancestrais + "<br>" +
+        "lvl: " + genetica.lvl + "<br>" +
+        "hp: " + genetica.hp + "<br>" +
+        "st: " + genetica.st + "<br>" +
+        "ox: " + genetica.ox + "<br>" +
+        "fo: " + genetica.fo + "<br>" +
+        "we: " + genetica.we + "<br>" +
+        "dm: " + genetica.dm + "<br>" +
+        "mo: " + genetica.mo;
+      listItem.appendChild(infoCriatura);
 
-    resultContainer.innerHTML += `Quantidade de Tentativas: ${tentativa}<br> Acertos = ${pontuacao} e Erros = ${erros} <br>`;
+      listaMutacao.appendChild(listItem);
+    });
+  }
 
-    // Percorra cada pergunta e verifique se a resposta está correta
-    for (const question in correctAnswers) {
-      const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
 
-      if (userAnswer) {
-        if (userAnswer.value !== correctAnswers[question]) {
-          // Adicione a resposta errada ao resultado
-          resultContainer.innerHTML += `Pergunta ${question}: Resposta errada - ${userAnswer.value}, Correta - ${correctAnswers[question]} <br>`;
-        }
-      } else {
-        // Adicione a resposta não selecionada ao resultado
-        resultContainer.innerHTML += `Pergunta ${question}: Nenhuma resposta selecionada, Correta - ${correctAnswers[question]} <br>`;
-      }
-    }
+  function filtrarGenetica() {
 
-    // Sua chamada fetch() e código relacionado aqui...
-    fetch("/quiz/cadastrar", {
+    var termoBusca = document.getElementById("search").value.toLowerCase();
+    var geneticaFiltradas = geneticas.filter(function (genetica) {
+      return genetica.especie.toLowerCase().includes(termoBusca);
+    });
+
+    exibirMutacao(geneticaFiltradas);
+  }
+
+  // Aguarde o carregamento completo do DOM antes de executar o código
+  document.addEventListener("DOMContentLoaded", function () {
+    // Adicione as genetica à lista
+    iniciarDados();
+
+    // Adicione mais lógica ou funções conforme necessário
+  });
+
+
+
+
+  function submitForm() {
+    // Coletar dados do formulário
+    var especie = document.getElementById('especie').value;
+    var genero = document.getElementById('genero').value;
+    var ancestrais = document.getElementById('ancestrais').value;
+    var lvl = document.getElementById('lvl').value;
+    var hp = document.getElementById('hp').value;
+    var st = document.getElementById('st').value;
+    var ox = document.getElementById('ox').value;
+    var fo = document.getElementById('fo').value;
+    var we = document.getElementById('we').value;
+    var dm = document.getElementById('dm').value;
+    var mo = document.getElementById('mo').value;
+
+    fetch("/mutacao/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        pontuacaoServer: pontuacao,
-        tentativaServer: tentativa,
-        errosServer: erros,
+        especieServer: especie,
+        generoServer: genero,
+        ancestraisServer: ancestrais,
+        lvlServer: lvl,
+        hpServer: hp,
+        stServer: st,
+        oxServer: ox,
+        foServer: fo,
+        weServer: we,
+        dmServer: dm,
+        moServer: mo,
         idUser: sessionStorage.ID_USUARIO
+
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          // Lógica de sucesso
-          console.log("Cadastro realizado com sucesso!");
+          // Aqui está a chamada da função finalizarAguardar
+          finalizarAguardar();
+
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+
+          setTimeout(() => {
+            window.location = "mutacao.html";
+          }, '2000');
+
+          limparFormulario();
         } else {
-          // Lógica de erro
-          console.error("Houve um erro ao tentar realizar o cadastro!");
-          throw new Error("Erro no cadastro");
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
-      .catch(function (erro) {
-        // Lógica para lidar com erros
-        console.error("#ERRO: ", erro);
-        if (erro instanceof Error) {
-          console.error("Mensagem de erro:", erro.message);
-        } else {
-          console.error("Resposta do servidor:", erro);
-        }
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+
+        // Aqui está a chamada da função finalizarAguardar
+        finalizarAguardar();
       });
 
-
-
-
-      const labels = [
-    'Pontuação',
-    'Erros',
-  ];
-
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Quantidade de acertos e erros',
-      backgroundColor: ['rgb(94, 153, 136)', 'rgb(219, 8, 20)'],
-      borderColor: 'rgb(253, 253, 253)',
-      data: [pontuacao, erros],
-    }]
+    return false;
   }
 
-  const config = {
-    type: 'doughnut',
-    data: data,
-    options: {}
+  // Defina a função finalizarAguardar aqui
+  function finalizarAguardar() {
+    // Implemente a lógica desejada para finalizar o aguardar
+    console.log('Finalizando aguardar...');
   }
-
-  const grafico1 = new Chart(
-      document.getElementById('grafico1'),
-      config
-  );
-  }
-
-
-  function iniciarDados(){
-
-      
-fetch("/quiz", {
-      method: "GET",
-      headers: {
-          "Content-Type": "application/json"
-      }
-     
-  }).then(function (resposta){
-    if (resposta.ok) {
-          console.log(resposta);
-
-          resposta.json().then(json => {
-              console.log(json);
-              pontuacao = json
-              erros = json
-
-          }
-          )}
-  })
-}
-
-
-
-
-
-
-  // Função para exibir a dica
-  function showTip(tip) {
-    const dialog = document.createElement('dialog');
-    dialog.innerHTML = `<p>${tip}</p><button onclick="closeDialog()">Fechar</button>`;
-    document.body.appendChild(dialog);
-    dialog.showModal();
-  }
-
-  // Função para fechar o modal
-  function closeDialog() {
-    const dialog = document.querySelector('dialog');
-    dialog.close();
-    dialog.remove();
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
 </script>
 
 </html>

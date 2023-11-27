@@ -7,6 +7,9 @@ router.post("/cadastrar", function (req, res) {
     especieController.cadastrar(req, res);
 });
 
+router.get("/", function (req, res) {
+    especieController.listar(req, res);
+});
 // Adicione outras rotas conforme necessário
 
 module.exports = router;

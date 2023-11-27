@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,18 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="shortcut icon" href="../../assets/icons/favicon.ico" type="image/x-icon" />
-  <title>The Crews | Cadastro</title>
+  <link rel="icon" href="./assets/icon/logo.png">
+  <title>Ark | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
   <link rel="stylesheet" href="global.css" />
   <link rel="stylesheet" href="./css/cadastro.css" />
 </head>
 
-<body onload="listar()">
+<body>
   <div class="card_erro" id="cardErro">
-    <img id="imgModalError" src="../../assets/icons/bx_error-circle.svg" alt="" style="width: 50px" />
-    <img id="imgModalCorrect" src="../../assets/icons/bi_check-circle.svg" alt="" style="width: 50px" />
     <span id="mensagem_erro"></span>
   </div>
   <main class="container-main">
@@ -30,19 +26,16 @@
             <div class="header-right-side">
               <img class="logo" src="./assets/icon/logo.png" alt="" />
               <div class="header-right-side">
-
                 <h2>Ark Project.</h2>
-            </div>
+              </div>
             </div>
           </div>
-
           <div class="card_erro" id="cardErro">
             <span id="mensagem_erro"></span>
-          </div>
-          
+          </div> 
 
           <div class="left-side">
-            <a class="sair" href="../../index.html">x</a>
+            <a class="sair" href="index.html">x</a>
             <div class="header-left-side">
               <h2>Cadastre-se</h2>
               <p>Digite seus dados.</p>
@@ -86,27 +79,23 @@
               <p>Já tem uma conta?
                 <a href="login.html">Entrar</a>
               </p>
-
             </form>
-             <div id="div_aguardar" class="loading-div">
-          <img id="loading-gif" />
-        </div>
-
-        <div id="div_erros_login"></div>
-    
+            
           </div>
-          </div>
+          
         </div>
       </div>
     </div>
   </main>
+  <div id="div_aguardar" class="loading-div">
+  </div>
+  <div id="div_erros_login"></div>
 </body>
 
 <script>
-  function cadastrar(event) {
+function cadastrar(event) {
     event.preventDefault();
 
-    aguardar();
 
     var nomeVar = document.getElementById('nome').value;
     var emailVar = document.getElementById('email').value;
@@ -114,57 +103,68 @@
     var modoJogoVar = document.getElementById('modoJogo').value;
     var sexoVar = document.getElementById('genero').value;
 
-    if (nomeVar == "" || emailVar == "" || senhaVar == "" || sexoVar == "" || modoJogoVar == "") {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
+    // Adicione verificação para cardErro
+    var cardErro = document.getElementById('cardErro');
+    if (!cardErro) {
+        console.error("Elemento 'cardErro' não encontrado.");
+        return false;
     }
 
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || sexoVar == "" || modoJogoVar == "") {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        // Finalizar o carregamento após exibir a mensagem de erro
+        return false;
+    } else {
+        setTimeout(sumirMensagem, 5000);
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
     fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        generoServer: sexoVar,
-        jogoServer: modoJogoVar
-      }),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+            generoServer: sexoVar,
+            jogoServer: modoJogoVar
+        }),
     })
-      .then(function (resposta) {
+    .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            console.log(resposta);
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          setTimeout(() => {
-            console.log("Verifica se foi executado")
+            setTimeout(function () {
+                console.log("Verifica se foi executado");
+                window.location.href = "login.html";
+            }, 1000); // Apenas para exibir o loading
 
-            window.location = "login.html";
-          }, 2000);
-
-          limparFormulario();
-          finalizarAguardar();
+            limparFormulario();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+            throw "Houve um erro ao tentar realizar o cadastro!";
         }
-      })
-      .catch(function (resposta) {
+    })
+    .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
+        // Finalizar o carregamento após exibir a mensagem de erro
+    });
 
     return false;
-  }
+}
 
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+function sumirMensagem() {
+    document.getElementById('cardErro').style.display = "none";
+    // Finalizar o carregamento após sumir a mensagem
+}
 </script>
+
+</html>
